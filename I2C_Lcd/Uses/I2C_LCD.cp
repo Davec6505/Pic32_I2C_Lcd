@@ -1,6 +1,6 @@
-#line 1 "C:/Users/GIT/Pic32_I2C_Lcd/I2C_LCD.c"
-#line 1 "c:/users/git/pic32_i2c_lcd/i2c_lcd.h"
-#line 59 "c:/users/git/pic32_i2c_lcd/i2c_lcd.h"
+#line 1 "C:/Users/Public/Documents/Mikroelektronika/mikroC PRO for PIC32/Packages/I2C_Lcd/Uses/I2C_LCD.c"
+#line 1 "c:/users/public/documents/mikroelektronika/mikroc pro for pic32/packages/i2c_lcd/uses/i2c_lcd.h"
+#line 59 "c:/users/public/documents/mikroelektronika/mikroc pro for pic32/packages/i2c_lcd/uses/i2c_lcd.h"
 typedef enum{
  _LCD_FIRST_ROW = 1,
  _LCD_SECOND_ROW,
@@ -33,9 +33,9 @@ extern Cmd_Type Cmd;
  void I2C_Lcd_Chr( unsigned char  addr,  unsigned char  row,  unsigned char  col,  unsigned char  out_char);
  void I2C_LCD_init( unsigned char  addr);
  void I2C_LCD_init4l( unsigned char  addr);
-#line 1 "c:/users/git/pic32_i2c_lcd/i2c_lcd.h"
+#line 1 "c:/users/public/documents/mikroelektronika/mikroc pro for pic32/packages/i2c_lcd/uses/i2c_lcd.h"
 #line 1 "c:/users/public/documents/mikroelektronika/mikroc pro for pic32/include/built_in.h"
-#line 9 "C:/Users/GIT/Pic32_I2C_Lcd/I2C_LCD.c"
+#line 9 "C:/Users/Public/Documents/Mikroelektronika/mikroC PRO for PIC32/Packages/I2C_Lcd/Uses/I2C_LCD.c"
  unsigned char  I2C_PCF8574_Write( unsigned char  addr, unsigned char  Data){
  unsigned char  S,dummy;
 

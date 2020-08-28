@@ -1,6 +1,6 @@
-#line 1 "C:/Users/cfan/Dropbox/Dave's/Mikroc32/I2C_LCD/I2C_LCD_Main.c"
-#line 1 "c:/users/cfan/dropbox/dave's/mikroc32/i2c_lcd/i2c_lcd.h"
-#line 59 "c:/users/cfan/dropbox/dave's/mikroc32/i2c_lcd/i2c_lcd.h"
+#line 1 "C:/Users/GIT/Pic32_I2C_Lcd/I2C_LCD_Main.c"
+#line 1 "c:/users/git/pic32_i2c_lcd/i2c_lcd.h"
+#line 59 "c:/users/git/pic32_i2c_lcd/i2c_lcd.h"
 typedef enum{
  _LCD_FIRST_ROW = 1,
  _LCD_SECOND_ROW,
@@ -34,13 +34,10 @@ extern Cmd_Type Cmd;
  void I2C_LCD_init( unsigned char  addr);
  void I2C_LCD_init4l( unsigned char  addr);
 #line 1 "c:/users/public/documents/mikroelektronika/mikroc pro for pic32/include/built_in.h"
-#line 5 "C:/Users/cfan/Dropbox/Dave's/Mikroc32/I2C_LCD/I2C_LCD_Main.c"
+#line 5 "C:/Users/GIT/Pic32_I2C_Lcd/I2C_LCD_Main.c"
  unsigned char  LCD_01_ADDRESS = 0x4E;
 
-
 char txt[] = "Hello World";
-
-
 
 void main() {
  int i = 0;
@@ -61,7 +58,6 @@ void main() {
  Delay_ms(1000);
  i=1;j=0;
  while(1){
-
  j++;
  i=1;
  I2C_LCD_Out(LCD_01_ADDRESS,j,1,txt);
