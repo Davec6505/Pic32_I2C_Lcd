@@ -36,7 +36,9 @@
 #define LCD_INIT_BYTEC         0x28
 
 
-
+//////////////////////////////////////////////////////////////////
+//external variables
+extern int I2CUnit;
 
 
  /////////////////////////////////////////////////////////////////
@@ -55,7 +57,6 @@
  LCD_SHIFT_LEFT         0x18
  LCD_SHIFT_RIGHT        0x1C
 **/
-
 typedef enum{
    _LCD_FIRST_ROW = 1,
    _LCD_SECOND_ROW,
@@ -74,12 +75,21 @@ typedef enum{
    _LCD_SHIFT_RIGHT,
    _LCD_INCREMENT_NO_SHIFT
 }Cmd_Type;
-
 extern Cmd_Type Cmd;
-
+//////////////////////////////////////////////////////
+//different boards use differing I2C numbers
+typedef enum{
+ I2C1 = 1,
+ I2C2,
+ I2C3,
+ I2C4,
+ I2C5,
+ I2C6
+}I2C_Type;
+extern I2C_Type  I2C_No;
  ////////////////////////////////////////////////////////////////
  //function prototypes
- UChar I2C_PCF8574_Write(UChar addr,UChar Data);
+ UChar I2C_PCF8574_Write(UChar addr,UChar Data );
  void I2C_LCD_putcmd(UChar addr, UChar dta,UChar cmdtype);
  void I2C_LCD_goto(UChar addr,UChar row, UChar col);
  void I2C_Lcd_Cmd(UChar addr,Cmd_Type cmd,UChar col);
@@ -87,8 +97,8 @@ extern Cmd_Type Cmd;
  void I2C_LCD_Out(UChar addr, UChar row, UChar col, UChar *s);
  void I2C_Lcd_Chr(UChar addr, UChar row, UChar col, UChar out_char);
  void I2C_LCD_init(UChar addr);
- void I2C_LCD_init4l(UChar addr);
-
+ void I2C_LCD_init4l(UChar addr,I2C_Type  I2C_No);
+ void I2CNo_Init(I2C_Type I2C_No);
 
 
 

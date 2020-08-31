@@ -1,23 +1,59 @@
 #include "I2C_LCD.h"
+#include "built_in.h"
 
 
- #include "I2C_LCD.h"
- #include "built_in.h"
-
+/********TO DO LIST*********************************
+*a) get I2Cx_ library dynamiv.
+*b)
+*c)
+***************************************************/
+int I2CUnit;
  ///////////////////////////////////////////////////
 //SEND DATA VIA I2C_libray
-UChar I2C_PCF8574_Write(UChar addr,UChar Data){
+UChar I2C_PCF8574_Write(UChar addr,UChar Data ){
 UChar S,dummy;                         //temprary variables to catch error from i2c bus
+    if(I2CUnit == I2C1){
+        I2C1_Start();                //Start send ACK
+        S = I2C1_Write(addr);        //Send address and check for error
 
+        I2C1_Write(Data);
+        I2C1_Stop();
+    }
+    if(I2CUnit == I2C2){
         I2C2_Start();                //Start send ACK
         S = I2C2_Write(addr);        //Send address and check for error
-       // if(S != 0){                //if S then there must be bus collision
-       //    LATE3_bit = 1;//!LATE3_bit;
-         // dummy = SSPBUF;        //clear the buffer
-         // WCOL_bit = 0;                //clear collision status bit
-        // }else  LATE3_bit = 0;
+
         I2C2_Write(Data);
         I2C2_Stop();
+    }
+    if(I2CUnit == I2C3){
+        I2C3_Start();                //Start send ACK
+        S = I2C3_Write(addr);        //Send address and check for error
+
+        I2C3_Write(Data);
+        I2C3_Stop();
+    }
+    if(I2CUnit == I2C4){
+        I2C4_Start();                //Start send ACK
+        S = I2C4_Write(addr);        //Send address and check for error
+
+        I2C4_Write(Data);
+        I2C4_Stop();
+    }
+    if(I2CUnit == I2C5){
+        I2C5_Start();                //Start send ACK
+        S = I2C5_Write(addr);        //Send address and check for error
+
+        I2C5_Write(Data);
+        I2C5_Stop();
+    }
+    /* NOT NECESSARY ANY MORE*/
+      // if(S != 0){                //if S then there must be bus collision
+      //    LATE3_bit = 1;//!LATE3_bit;
+      // dummy = SSPBUF;        //clear the buffer
+      // WCOL_bit = 0;                //clear collision status bit
+      // }else  LATE3_bit = 0;
+    /**************************/
 
 }
 
@@ -152,3 +188,7 @@ void I2C_LCD_init(UChar addr){
  I2C_LCD_putcmd(addr, LCD_DISPLAY_ON_CURSOR_OFF,0);
  Delay_ms(25);
 } // LCD_init()
+
+void I2CNo_Init(I2C_Type I2C_No){
+  I2CUnit = I2C_No;
+}
